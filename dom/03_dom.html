@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document object model part 3</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script> // open browser console to check 
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round(Math.random() * 10 + 1) // just for fun
+    div.setAttribute("title", "generated title")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+
+    // div.innerText = "satyam gupyta"
+    const addText = document.createTextNode("satyam gupta")
+    div.appendChild(addText) // optimized approach rather than div.innerText
+
+    document.body.appendChild(div) // makes the code visible to the webpage
+
+</script>
+</html>

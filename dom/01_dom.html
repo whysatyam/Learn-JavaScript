@@ -1,0 +1,43 @@
+<!-- window conatins document -->
+<!-- document contains HTML -->
+<!-- HTML consists of 2 child elements or nodes namely head and body -->
+<!-- head consists of further nodes like title, meta etc and body consists of further nodes like div, h1 etc -->
+
+<!-- shift + enter to move to the next line in browser console -->
+<!-- NodeList in browser console is not an array, even tho it starts and ends with [] -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>document object model part 1</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">hey, I am Satyam Gupta <span style="display: none;">text</span></h1>  
+        <!--textContent property will output 'hey, I am Satyam Gupta text' even when the display is set to none for span tag -->
+
+        <!-- innerText property just shows us the visible text on the webpage -->
+        <!-- textContent property shows us visible text and the hidden text aswell -->
+        <!-- innerHTML supports and can output the html code aswell  -->
+        <h2>hey how are you</h2>
+        <h2>hey how are you</h2>
+        <h2>hey how are you</h2>
+        <p>I hope you are okay</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">1</li>
+            <li class="list-item">2</li>
+            <li class="list-item">3</li>
+            <li class="list-item">4</li>
+        </ul>
+    </div>
+</body>
+</html>

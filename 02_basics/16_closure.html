@@ -1,0 +1,27 @@
+<!-- A closure is a feature of JavaScript that allows inner functions to access the outer scope of a function -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hey</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">0range</button>
+    <button id="green">green</button>
+</body>
+
+    <script>
+        function clickHandler(color){
+            
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            } // return function here has the access to "color" parameter we passed in clickHandler function
+              // because the whole lexical scope gets returned, when we return a function in a function
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+</html>

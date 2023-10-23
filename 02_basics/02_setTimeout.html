@@ -1,0 +1,57 @@
+<!-- by default javascript is synchronous and single threaded
+
+2 types of code in js - blocking code and non blocking code
+
+blocking code - blocks the flow of program (synchronous code)
+non blocking code - does not breaks the execution (asynchronous code)
+
+we cant compare both of them, both have their own use cases
+
+async tasks means code which will run after some period of time
+setTimeout and setInterval web api uses task queue to perform async tasks
+fetch web api uses promise queue to perform async tasks, promise queue is high priority -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <h1>satyam is here</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // note -  check browser console while learning 
+
+    // setTimeout - runs the function just once
+    setTimeout(function() {
+        console.log("hello") // console logs hello just once after 2 seconds
+    }, 2000); // will run 2 seconds
+
+    // another way -
+    const saySatyam = function(){
+        console.log("satyam");
+    }
+    setTimeout(saySatyam, 3000) // just give reference, dont run the function like this saySatyam()
+
+    // changing h1 tag after 2 seconds using setTimeout -
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "satyam is not here"
+    }
+    const changeMe = setTimeout(changeText, 2000) // setTimeout will run even if it is stored in a variable without calling
+
+    // stopping the setTimeout
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe) // stops the setTimeout once the stop button is clicked
+        console.log("stopped")
+    })
+</script>
+</html>
+
+<!-- 
+    setTimeout makes the function run just once after specific period of time
+    setInterval makes the function run repeatedly, starting after the interval of time, then repeating continuously at that interval
+-->

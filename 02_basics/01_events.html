@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>topic - events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>cool images</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('images').onclick = function(){ 
+    //   alert("clicked");   // not efficient
+    // }
+
+    // document.getElementById('images').addEventListener('click', function(e){  
+    //     console.log("clicked inside the ul");  // efficient
+    // }, false) // event propogation - when false is called event bubbling, when true is called event capturing, if we dont specify value is set to false as default
+
+    // when we console.log(e); , we get alot of items in the browser console, we just need to study these -
+    
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+
+    // when both of them are false , console outputs 'owl clicked' on top and 'image clicked' below that when the owl image is clicked
+    // when both of them are true , console outputs 'image clicked' on top and 'owl clicked' below that when the owl image is clicked
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("image clicked");
+    }, false) 
+
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log("owl clicked");
+        // e.stopPropagation() // just outputs 'owl clicked' on false, it stops the event bubbling
+    }, false) 
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault(); // link won't work
+    //     e.stopPropagation(); // stops bubbling
+    //     console.log("google clicked");
+    // }, false)
+   
+    
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName); // outputs IMG to browser console when we click any image
+        if (e.target.tagName === 'IMG') {
+            e.target.parentNode.remove() // removes the image
+        }
+    })
+
+</script>
+</html>

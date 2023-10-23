@@ -1,0 +1,51 @@
+<!-- 
+    setTimeout makes the function run just once after specific period of time
+    setInterval makes the function run repeatedly, starting after the interval of time, then repeating continuously at that interval
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <h1>check browser console</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // setInterval -
+    setInterval(function() {
+        console.log("hello")
+    },1000)
+
+    
+    // another way -
+    const saySatyam = function() {
+      console.log("satyam");
+    }
+    setInterval(saySatyam, 3000) // reference 
+    
+    
+    // adding functionality to start button -
+    let intervalId;
+
+    const sayDate = function(str) {
+      console.log(str, Date.now());
+    }
+
+    document.querySelector("#start").addEventListener("click", function () {
+      intervalId = setInterval(function () {
+      sayDate("hi");
+      }, 1000);
+    }); // prints out - hi 1697881248964 // numbers is the time in milliseconds
+     
+   // adding functionality to stop button -
+   document.querySelector("#stop").addEventListener("click", function () {
+      clearInterval(intervalId);
+      console.log("stopped");
+    });
+
+</script>
+</html>

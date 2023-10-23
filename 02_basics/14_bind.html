@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "react"
+            this.server = "https://localhost:300"
+
+            //requirement - get reference of button and on clicking the button we need a console.log of 'button clicked'
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick.bind(this))
+                // .bind() gives access 
+                // this.handleClick - here "this" refers to button
+                // .bind(this) - here "this" gives access to all the variables
+        }
+        handleClick(){
+            console.log("button clicked");
+            console.log(this.server); // we just want server variable
+        }
+    }
+
+    const app = new React()
+</script>
+</html>
